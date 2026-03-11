@@ -18,7 +18,7 @@ import org.jetbrains.compose.resources.painterResource
 
 import lr2.composeapp.generated.resources.Res
 import lr2.composeapp.generated.resources.compose_multiplatform
-
+import co.touchlab.kermit.Logger
 @Composable
 @Preview
 fun App() {
@@ -31,7 +31,10 @@ fun App() {
                 .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Button(onClick = { showContent = !showContent }) {
+            Button(onClick = {
+                showContent = !showContent
+                Logger.i { "Logger test." }
+            }) {
                 Text("Click me!")
             }
             AnimatedVisibility(showContent) {
